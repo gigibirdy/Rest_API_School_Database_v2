@@ -31,38 +31,43 @@ class UserSignUp extends Component {
                       <ul>
                       {
                         (this.state.errorMessage.includes('notEmpty on firstName'))
-                      ? <li>Please provide first name (alphabetical letters only)</li>
-                      : ''
+                      ? <li>Please provide first name</li>
+                      : (
+                          (this.state.errorMessage.includes('is on firstName'))
+                          ? <li>Please provide first name (alphabetical letters only)</li>
+                          : ''
+                        )
                       }
                       {
                         (this.state.errorMessage.includes('notEmpty on lastName'))
-                      ? <li>Please provide last name (alphabetical letters only)</li>
-                      : ''
-                      }
-                      {
-                        (this.state.errorMessage.includes('Existing email address'))
-                      ? <li>This email Address is already registered. Please sign in.</li>
-                      : ''
+                      ? <li>Please provide last name</li>
+                      : (
+                          (this.state.errorMessage.includes('is on lastName'))
+                          ? <li>Please provide last name (alphabetical letters only)</li>
+                          : ''
+                        )
                       }
                       {
                         (this.state.errorMessage.includes('notEmpty on emailAddress'))
                       ? <li>Please provide email address</li>
-                      : ''
-                      }
-                      {
-                        (this.state.errorMessage.includes('isEmail'))
-                      ? <li>Email address is not valid</li>
-                      : ''
+                      : (
+                          (this.state.errorMessage.includes('isEmail'))
+                          ? <li>Email address is not valid</li>
+                          : (
+                              (this.state.errorMessage.includes('Existing email address'))
+                              ? <li>This email Address is already registered. Please sign in.</li>
+                              : ''
+                            )
+                        )
                       }
                       {
                         (this.state.errorMessage.includes('notEmpty on password'))
                       ? <li>Please provide password</li>
-                      : ''
-                      }
-                      {
-                        (this.state.errorMessage.includes('Password confirmation is not identical as password'))
-                      ? <li>Password confirmation is not identical as password</li>
-                      : ''
+                      : (
+                          (this.state.errorMessage.includes('Password confirmation is not identical as password'))
+                          ? <li>Password confirmation is not identical as password</li>
+                          : ''
+                        )
                       }
                       </ul>
                     </div>
